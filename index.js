@@ -24,6 +24,6 @@ app.get("/developers", async (req, res) => {
   res.json(data);
 });
 
-app.listen(1000 || process.env.PORT, () => {
+app.listen(process.env.PORT, () => {
   console.log("server started");
 });
