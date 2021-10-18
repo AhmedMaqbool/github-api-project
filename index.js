@@ -5,13 +5,9 @@ import cors from "cors";
 
 app.use(cors());
 
-app.get("/", (req, res) => {
-  res.send("Hello To The API");
-});
-
-app.get("/repo", async (req, res) => {
-  const response = await fetch();
-  const data = await response.json(process.env.REPO_API);
+app.get("/", async (req, res) => {
+  const response = await fetch(process.env.REPO_API);
+  const data = await response.json();
 
   res.json(data);
 });
@@ -24,6 +20,6 @@ app.get("/developers", async (req, res) => {
   res.json(data);
 });
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 1000, () => {
   console.log("server started");
 });
