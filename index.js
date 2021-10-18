@@ -5,7 +5,11 @@ import cors from "cors";
 
 app.use(cors());
 
-app.get("/", async (req, res) => {
+app.get("/", (req, res) => {
+  res.send("Hello To The Git API");
+});
+
+app.get("/repo", async (req, res) => {
   const response = await fetch(process.env.REPO_API);
   const data = await response.json();
 
